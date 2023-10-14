@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 
 import Footer from "../componentes/Footer"
-import Navbar from "../componentes/Navbar";
+import NavbarDrawerResponsive from "../componentes/NavbarDrawerResponsive";
 import { Box } from "@mui/material";
 const LayoutPublic = () => {
     return (
         <Box style={{ height: '100vh' }}>
-            <Navbar />
+            <NavbarDrawerResponsive />
             <Outlet />
             <Footer />
         </Box>

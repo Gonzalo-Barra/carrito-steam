@@ -1,13 +1,13 @@
-import { Typography } from "@mui/material";
+import { Container, Typography } from "@mui/material";
 import KeyCard from "../componentes/keyCard";
-
 function App() {
   return (
-    <>
-        <Typography variant="h1" align="center">Compra de llaves</Typography>
+    <Container>
+
+        <Typography variant="h1" align="center" fontSize="25px">Compra de llaves</Typography>
         <KeyCard />
       
-    </>
+    </Container>
   );
 }
 
