@@ -6,18 +6,19 @@ import { router } from "./router";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
 import { KeyProvider } from "./context/keyContext";
+import { UserProvider } from "./context/userContext";
 
 const theme = createTheme({
   palette: {
-    type: 'light',
+    type: "light",
     primary: {
-      main: '#000000',
+      main: "#000000",
     },
     secondary: {
-      main: '#f50057',
+      main: "#f50057",
     },
     text: {
-      primary: 'rgba(0,0,0,0.87)',
+      primary: "rgba(0,0,0,0.87)",
     },
   },
 });
@@ -25,9 +26,11 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-    <KeyProvider>
-      <CssBaseline />
-      <RouterProvider router={router} />
+      <KeyProvider>
+        <UserProvider>
+          <CssBaseline />
+          <RouterProvider router={router} />
+        </UserProvider>
       </KeyProvider>
     </ThemeProvider>
   </React.StrictMode>
