@@ -5,6 +5,7 @@ import Grid from "@mui/material/Grid";
 import { Button, Container, Typography } from "@mui/material";
 import keyImagen from "../assets/Keys.png";
 import styled from "@emotion/styled";
+import { useKeyContext } from "../context/keyContext";
 
 
 const Img = styled("img")({
@@ -18,19 +19,21 @@ const boxStyle = {
   alignItems: "center",
 };
 const Checkout = () => {
-    const [key, setKeys] = useState(0);
-    const increment = () => {
-      setKeys(key + 1);
-    };
-  
-    const decrement = () => {
-      if (key > 0) {
-        setKeys(key - 1);
-      }
-    };
+
+  const { count, setCount} = useKeyContext();
+
+   const increment = () => {
+    setCount(count + 1);
+  };
+
+  const decrement = () => {
+    if (count> 0) {
+      setCount(count - 1);
+    }
+  };
   
     const totalKeys = () => {
-      return 1600 * key;
+      return 1600 * count;
     };
     return (
       <>
@@ -62,7 +65,7 @@ const Checkout = () => {
               </Box>
             </Grid>
             <Grid item xs={4}>
-              <Typography textAlign="center">{key}</Typography>
+              <Typography textAlign="center">{count}</Typography>
             </Grid>
             <Grid item xs={8}>
               <Typography textAlign="right">Total</Typography>

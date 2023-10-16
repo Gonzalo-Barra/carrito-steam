@@ -4,6 +4,7 @@ import { Box, Container, Grid } from "@mui/material";
 import Button from "@mui/material/Button";
 import styled from "@emotion/styled";
 import { Link } from "react-router-dom";
+import { useKeyContext } from "../context/keyContext";
 
 const boxStyle = {
   display: "flex",
@@ -16,14 +17,14 @@ const Img = styled("img")({
 });
 
 const KeyCard = () => {
-  const [key, setKeys] = useState(0);
+  const { count, setCount} = useKeyContext();
   const increment = () => {
-    setKeys(key + 1);
+    setCount(count + 1);
   };
 
   const decrement = () => {
-    if (key > 0) {
-      setKeys(key - 1);
+    if (count> 0) {
+      setCount(count - 1);
     }
   };
 
@@ -49,7 +50,7 @@ const KeyCard = () => {
 
           <Grid item xs={12} zeroMinWidth>
             <Box sx={boxStyle}>
-              {key}
+              {count}
             </Box>
           </Grid>
 
@@ -59,7 +60,7 @@ const KeyCard = () => {
               <Button onClick={decrement}>-</Button>
             </Box>
             <Box sx={boxStyle}>
-              {key > 0 ? (
+              {count > 0 ? (
                 <Link to="/cart">
                   <Button>Comprar</Button>
                 </Link>

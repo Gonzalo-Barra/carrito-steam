@@ -5,6 +5,7 @@ import { CssBaseline, createTheme } from "@mui/material";
 import { router } from "./router";
 import { RouterProvider } from "react-router-dom";
 import { ThemeProvider } from "@emotion/react";
+import { KeyProvider } from "./context/keyContext";
 
 const theme = createTheme({
   palette: {
@@ -24,8 +25,10 @@ const theme = createTheme({
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
+    <KeyProvider>
       <CssBaseline />
       <RouterProvider router={router} />
+      </KeyProvider>
     </ThemeProvider>
   </React.StrictMode>
 );
