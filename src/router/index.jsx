@@ -3,6 +3,8 @@ import Home from "../pages/Home";
 import Cart from "../pages/Cart";
 import NotFound from "../pages/notFound";
 import About from "../pages/About";
+import Profile from "../pages/Profile";
+
 
 export const router = createBrowserRouter([
   
@@ -12,12 +14,17 @@ export const router = createBrowserRouter([
       },
       {
         path: "/about",
-        element: <About />,
+        element: <About />
       },
       {
         path: "/cart",
-        element: <Cart />,
+        element: <Cart />
       },
+      {
+        path: "/profile",
+        element: <Profile />
+      },
+ 
     
   
 ]);

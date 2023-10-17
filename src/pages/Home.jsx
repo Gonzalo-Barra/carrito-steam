@@ -4,7 +4,7 @@ import Navbar from "../componentes/Navbar";
 
 
 
-function App() {
+function Home() {
   return (
     <>
     <Navbar />
@@ -20,4 +20,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

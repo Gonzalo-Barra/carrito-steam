@@ -16,9 +16,11 @@ import styled from '@emotion/styled';
 import loginImagen from "../assets/login.png";
 import { Link } from 'react-router-dom';
 import { useUserContext } from '../context/userContext';
+import { useState, useEffect } from 'react';
+
 
 const Img = styled("img")({
-  width: "55%",
+  width: "100%",
   height: "100%",
 });
 const pages = ['home', 'about'];
@@ -30,6 +32,21 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const {user, setUser} = useUserContext();
+
+  const fetchUserData = () => {
+    // Realiza una solicitud al servidor para obtener los datos del usuario.
+    fetch('http://localhost:3000/api/userdata') // Ruta en tu servidor para obtener los datos del usuario.
+      .then(response => response.json())
+      .then(data => {
+        // Almacena los datos del usuario en el estado local.
+        setUser(data);
+      })
+      .catch(error => {
+        console.error('Error al obtener datos del usuario:', error);
+      });
+  };
+
+  console.log(user)
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
@@ -136,7 +153,7 @@ function Navbar() {
               </Button>
             ))}
           </Box>
-          { user == null ? (<Box><Link to="http://localhost:3000/api/auth/steam"><Img src={loginImagen} /></Link></Box>):( <Box sx={{ flexGrow: 0 }}>
+          { user == null ? (<Box><Link to="http://localhost:3000/api/auth/steam"><Img onClick={fetchUserData}src={loginImagen} /></Link></Box>):( <Box sx={{ flexGrow: 0 }}>
           
           
           <Tooltip title="Open settings">
